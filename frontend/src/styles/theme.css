@@ -1,0 +1,31 @@
+:root {
+  /* ---- Color: "commute at dusk" palette ---- */
+  --ink: #12141c;           /* near-black navy, primary text */
+  --dusk: #1f2a4a;          /* deep indigo, headers/nav */
+  --dusk-2: #2c3a63;        /* lighter indigo, hover states */
+  --route: #ff8a3d;         /* amber route-line accent (CTA, active route) */
+  --route-dark: #e06f22;
+  --leaf: #2fa773;          /* eco/success green */
+  --leaf-bg: #e6f6ef;
+  --danger: #e0503f;
+  --danger-bg: #fbe9e7;
+  --sky: #f5f7fb;           /* app background */
+  --mist: #e4e9f2;          /* card borders / dividers */
+  --card: #ffffff;
+  --slate: #5b6478;         /* secondary text */
+  --slate-light: #8b93a7;
+
+  /* ---- Type ---- */
+  --font-display: 'Space Grotesk', 'Segoe UI', sans-serif;
+  --font-body: 'Inter', 'Segoe UI', sans-serif;
+  --font-mono: 'JetBrains Mono', 'Consolas', monospace;
+
+  /* ---- Layout ---- */
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 22px;
+  --shadow-sm: 0 1px 2px rgba(18,20,28,0.06), 0 1px 1px rgba(18,20,28,0.04);
+  --shadow-md: 0 8px 24px rgba(18,20,28,0.08);
+  --shadow-lg: 0 20px 48px rgba(18,20,28,0.14);
+  --nav-width: 240px;
+}
