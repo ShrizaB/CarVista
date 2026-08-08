@@ -111,12 +111,10 @@ CREATE TABLE IF NOT EXISTS rides (
 CREATE INDEX IF NOT EXISTS idx_rides_driver ON rides(driver_id);
 CREATE INDEX IF NOT EXISTS idx_rides_org_date ON rides(organization_id, travel_date);
 CREATE INDEX IF NOT EXISTS idx_rides_geo ON rides(pickup_lat, pickup_lng, destination_lat, destination_lng);
-CREATE INDEX IF NOT EXISTS idx_rides_recurring_group ON rides(recurring_group_id);
--- Idempotency guard: prevents a double-tap/duplicate publish of the identical ride
--- by the same driver for the same route/date/time while it's still active.
-CREATE UNIQUE INDEX IF NOT EXISTS uq_rides_no_dupe_publish ON rides
-  (driver_id, vehicle_id, pickup_lat, pickup_lng, destination_lat, destination_lng, travel_date, travel_time)
-  WHERE status IN ('published','full');
+-- NOTE: the recurring_group_id index and the duplicate-publish unique index
+-- are created further down, AFTER an ALTER TABLE ... ADD COLUMN IF NOT EXISTS
+-- guard. That way this migration is safe to run against a brand-new database
+-- OR an existing one from an older schema version.
 
 -- ---------------------------------------------------------
 -- Bookings (passenger books seats on a ride) -> becomes a Trip
